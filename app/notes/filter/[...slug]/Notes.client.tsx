@@ -14,6 +14,7 @@ import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useDebouncedCallback } from "use-debounce";
 import { fetchNotes } from "@/lib/api";
 import { Note } from "@/types/note";
+import Link from "next/link";
 
 interface NotesClientProps {
   initialNotes: Note[];
@@ -61,9 +62,9 @@ export default function NotesClient({
             onPageChange={setPage}
           />
         )}
-        <button className={css.button} onClick={() => setIsModalOpen(true)}>
+        <Link className={css.button} href={"/notes/action/create"}>
           Create note +
-        </button>
+        </Link>
       </header>
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}
