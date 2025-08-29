@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto, Geist } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import Providers from "../components/TanStackProvider/TanStackProvider";
 import Header from "@/components/Header/Header";
@@ -10,11 +10,6 @@ const robotoSans = Roboto({
   weight: ["400", "700"],
   variable: "--font-roboto",
   display: "swap",
-});
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -49,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${robotoSans.variable} ${geistSans.variable}`}>
+      <body className={`${robotoSans.variable}`}>
         <Providers>
           <Header />
           <main>
